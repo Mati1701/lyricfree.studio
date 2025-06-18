@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LyricFree.Studio 🎵</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header>
+    <h1>LyricFree.Studio</h1>
+    <nav>
+      <a href="#inicio">Inicio</a>
+      <a href="#letras">Generador de Letras</a>
+      <a href="#grabadora">Grabadora</a>
+      <a href="#inspiracion">Inspiración</a>
+    </nav>
+  </header>
+
+  <section id="inicio">
+    <h2>Bienvenido a LyricFree.Studio</h2>
+    <p id="bienvenida">Estás en modo visitante. Inicia sesión para desbloquear todo el poder creativo.</p>
+    <input type="text" id="nombreArtistico" placeholder="Tu nombre artístico o correo">
+    <button onclick="iniciarSesion()">Iniciar sesión</button>
+  </section>
+
+  <section id="letras">
+    <h2>Generador de Letras</h2>
+    <textarea id="letra" placeholder="Escribe tu letra aquí..."></textarea>
+    <div class="botones">
+      <button onclick="sugerirRima()">Sugerir Rima</button>
+      <button onclick="limpiarTexto()">Limpiar</button>
+      <button onclick="descargarLetra()">Descargar</button>
+    </div>
+  </section>
+
+  <section id="grabadora">
+    <h2>Grabadora (En construcción)</h2>
+    <button disabled>Grabar</button>
+  </section>
+
+  <section id="inspiracion">
+    <h2>Inspiración</h2>
+    <input type="text" id="palabraClave" placeholder="Dime una palabra, verso o emoción">
+    <button onclick="darInspiracion()">Inspírame</button>
+    <p id="fraseInspiracion"></p>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 LyricFree.Studio - Todos los derechos reservados.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
