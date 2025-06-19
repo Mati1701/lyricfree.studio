@@ -1,63 +1,406 @@
-body {
+/* Fuentes y resets básicos */
+* {
+  box-sizing: border-box;
   margin: 0;
+  padding: 0;
   font-family: 'Poppins', sans-serif;
-  background-color: #0f0f0f;
-  color: #fff;
 }
 
-header {
-  background-color: #1a1a1a;
-  padding: 1rem;
-  text-align: center;
+body {
+  background-color: #fefefe;
+  color: #222;
+  line-height: 1.5;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
-nav a {
-  margin: 0 10px;
-  color: #ff4081;
-  text-decoration: none;
+h1, h2 {
+  font-family: 'Raleway', sans-serif;
+  font-weight: 700;
 }
 
-section {
-  padding: 2rem;
+h1 {
+  font-size: 2.4rem;
+  margin-bottom: 0.3em;
 }
 
-textarea {
-  width: 100%;
-  height: 200px;
-  margin-top: 1rem;
-  padding: 1rem;
-  background: #1e1e1e;
-  color: #fff;
-  border: 1px solid #555;
-  border-radius: 5px;
-  resize: vertical;
+h2 {
+  font-size: 1.8rem;
+  margin-bottom: 0.6em;
+  color: #3a3a3a;
 }
 
-input, button {
-  padding: 0.5rem 1rem;
-  margin-top: 0.5rem;
-  border-radius: 4px;
+/* Menú lateral */
+#menuLateral {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 270px;
+  background-color: #222;
+  color: #eee;
+  padding: 1rem 1.5rem;
+  transform: translateX(-100%);
+  transition: transform 0.3s ease;
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+}
+
+#menuLateral.menu-cerrado {
+  transform: translateX(-100%);
+}
+
+#menuLateral:not(.menu-cerrado) {
+  transform: translateX(0);
+}
+
+#btnCerrarMenu {
+  background: none;
   border: none;
-}
-
-button {
-  background-color: #6200ea;
-  color: #fff;
+  color: #eee;
+  font-size: 2.5rem;
+  align-self: flex-end;
   cursor: pointer;
 }
 
-button:hover {
-  background-color: #3700b3;
+.menu-btn {
+  background-color: #444;
+  border: none;
+  color: #eee;
+  font-weight: 600;
+  padding: 0.7rem 1rem;
+  margin: 1rem 0;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background-color 0.25s ease;
+  user-select: none;
+}
+
+.menu-btn:hover {
+  background-color: #666;
+}
+
+#bioContainer {
+  margin-top: 1rem;
+  background-color: #333;
+  padding: 1rem;
+  border-radius: 7px;
+  display: none; /* Empieza oculto */
+  color: #ddd;
+  font-size: 0.9rem;
+  line-height: 1.4;
+}
+
+.logo-m4t {
+  display: block;
+  max-width: 80px;
+  margin: 0 auto 1rem auto;
+  border-radius: 50%;
+  border: 2px solid #eee;
+}
+
+/* Botón hamburguesa */
+.hamburguesa {
+  position: fixed;
+  top: 15px;
+  left: 15px;
+  font-size: 2rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  z-index: 1100;
+  color: #222;
+  user-select: none;
+  transition: color 0.3s ease;
+}
+
+.hamburguesa:hover {
+  color: #666;
+}
+
+/* Contenido principal */
+main {
+  max-width: 900px;
+  margin: 2.5rem auto 3rem;
+  padding: 0 1rem;
+  flex: 1;
+}
+
+header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+#mensajeBienvenida {
+  font-style: italic;
+  color: #555;
+  margin-top: 0.3rem;
+}
+
+/* Login */
+#login {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-bottom: 2rem;
+}
+
+#login input[type="text"],
+#login input[type="password"] {
+  padding: 0.6rem 1rem;
+  font-size: 1rem;
+  border: 2px solid #aaa;
+  border-radius: 5px;
+  width: 220px;
+  transition: border-color 0.3s ease;
+}
+
+#login input[type="text"]:focus,
+#login input[type="password"]:focus {
+  border-color: #444;
+  outline: none;
+}
+
+#btnLogin {
+  padding: 0.6rem 1.5rem;
+  font-weight: 600;
+  background-color: #444;
+  color: #eee;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+#btnLogin:hover {
+  background-color: #666;
+}
+
+/* Generador de letras */
+#generadorLetras textarea {
+  width: 100%;
+  height: 140px;
+  padding: 1rem;
+  border: 2px solid #222;
+  border-radius: 7px;
+  font-size: 1.1rem;
+  color: #222;
+  background-color: #fff;
+  resize: vertical;
+  margin-bottom: 1rem;
+}
+
+.botones {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  margin-bottom: 2rem;
 }
 
 .botones button {
-  margin-right: 0.5rem;
+  padding: 0.6rem 1.3rem;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+  background-color: #222;
+  color: #eee;
+  transition: background-color 0.3s ease;
 }
 
-footer {
-  text-align: center;
-  padding: 1rem;
-  background-color: #1a1a1a;
-  font-size: 0.8rem;
-  color: #888;
+.botones button:hover {
+  background-color: #444;
 }
+
+/* Grabadora */
+#grabadora {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+#grabadora button,
+#grabadora a {
+  margin: 0 0.5rem;
+  padding: 0.5rem 1rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  user-select: none;
+  color: #eee;
+  background-color: #222;
+  transition: background-color 0.3s ease;
+  text-decoration: none;
+}
+
+#grabadora button:disabled,
+#grabadora a:disabled {
+  background-color: #999;
+  cursor: not-allowed;
+}
+
+#grabadora button:hover:not(:disabled),
+#grabadora a:hover:not(:disabled) {
+  background-color: #444;
+}
+
+/* Inspiración */
+#inspiracion {
+  max-width: 450px;
+  margin: 0 auto 3rem;
+  text-align: center;
+}
+
+#inspiracion input[type="text"] {
+  width: 100%;
+  padding: 0.6rem 1rem;
+  font-size: 1rem;
+  border: 2px solid #222;
+  border-radius: 5px;
+  margin-bottom: 1rem;
+  transition: border-color 0.3s ease;
+}
+
+#inspiracion input[type="text"]:focus {
+  border-color: #555;
+  outline: none;
+}
+
+#inspiracion button {
+  padding: 0.6rem 1.3rem;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+  background-color: #222;
+  color: #eee;
+  transition: background-color 0.3s ease;
+  user-select: none;
+}
+
+#inspiracion button:hover {
+  background-color: #444;
+}
+
+#fraseInspiracion {
+  margin-top: 1rem;
+  font-style: italic;
+  color: #555;
+  font-size: 1.1rem;
+  min-height: 2rem;
+}
+
+/* Recomendaciones */
+#recomendaciones ul {
+  list-style: none;
+  padding-left: 0;
+  max-width: 450px;
+  margin: 0 auto 3rem;
+  font-size: 1rem;
+  color: #222;
+}
+
+#recomendaciones li {
+  margin-bottom: 0.7rem;
+}
+
+#recomendaciones a {
+  text-decoration: none;
+  color: #0077cc;
+  transition: color 0.3s ease;
+}
+
+#recomendaciones a:hover {
+  color: #005999;
+}
+
+/* Configuración */
+#configuracion {
+  max-width: 450px;
+  margin: 0 auto 3rem;
+  font-size: 1rem;
+  color: #222;
+}
+
+#configuracion label {
+  display: block;
+  margin-bottom: 0.4rem;
+  font-weight: 600;
+}
+
+#temaSelect {
+  width: 100%;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  border: 2px solid #222;
+  font-size: 1rem;
+  margin-bottom: 1rem;
+}
+
+#btnBorrarDatos {
+  background-color: #bb2222;
+  color: #eee;
+  border: none;
+  padding: 0.6rem 1.3rem;
+  border-radius: 5px;
+  font-weight: 700;
+  cursor: pointer;
+  user-select: none;
+  transition: background-color 0.3s ease;
+}
+
+#btnBorrarDatos:hover {
+  background-color: #aa1111;
+}
+
+/* Temas */
+body.tema-claro {
+  background-color: #fefefe;
+  color: #222;
+}
+
+body.tema-oscuro {
+  background-color: #121212;
+  color: #ddd;
+}
+
+body.tema-oscuro input,
+body.tema-oscuro textarea,
+body.tema-oscuro select {
+  background-color: #222;
+  color: #eee;
+  border-color: #555;
+}
+
+body.tema-emocional {
+  background: linear-gradient(135deg, #6a11cb, #2575fc);
+  color: #f0f0f0;
+}
+
+body.tema-emocional input,
+body.tema-emocional textarea,
+body.tema-emocional select {
+  background-color: rgba(255,255,255,0.2);
+  color: #fff;
+  border-color: #ddd;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  #login {
+    flex-direction: column;
+  }
+
+  .botones {
+    flex-direction: column;
+  }
+
+  .botones button {
+    width: 100%;
+  }
+}
+
