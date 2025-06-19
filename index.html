@@ -1,58 +1,94 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>LyricFree.Studio 🎵</title>
-  <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>LyricFree.Studio 🎵 Plataforma Creativa</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Raleway:wght@400;700&family=Sora:wght@400;700&display=swap" rel="stylesheet" />
+  <script defer src="script.js"></script>
 </head>
 <body>
-  <header>
-    <h1>LyricFree.Studio</h1>
-    <nav>
-      <a href="#inicio">Inicio</a>
-      <a href="#letras">Generador de Letras</a>
-      <a href="#grabadora">Grabadora</a>
-      <a href="#inspiracion">Inspiración</a>
-    </nav>
-  </header>
 
-  <section id="inicio">
-    <h2>Bienvenido a LyricFree.Studio</h2>
-    <p id="bienvenida">Estás en modo visitante. Inicia sesión para desbloquear todo el poder creativo.</p>
-    <input type="text" id="nombreArtistico" placeholder="Tu nombre artístico o correo">
-    <button onclick="iniciarSesion()">Iniciar sesión</button>
-  </section>
-
-  <section id="letras">
-    <h2>Generador de Letras</h2>
-    <textarea id="letra" placeholder="Escribe tu letra aquí..."></textarea>
-    <div class="botones">
-      <button onclick="sugerirRima()">Sugerir Rima</button>
-      <button onclick="limpiarTexto()">Limpiar</button>
-      <button onclick="descargarLetra()">Descargar</button>
+  <!-- Menú lateral -->
+  <nav id="menuLateral" class="menu-cerrado">
+    <button id="btnCerrarMenu" title="Cerrar menú">×</button>
+    <button id="btnBioToggle" class="menu-btn">ACERCA DEL AUTOR</button>
+    <div id="bioContainer" class="bio-oculta">
+      <img src="logo-m4t.png" alt="Logo M4T" class="logo-m4t" />
+      <p><strong>M4T</strong>, próximo cantante emergente, creador de LyricFree.Studio para facilitar la creatividad musical a todos los cantantes que empiezan y quieren llegar lejos.</p>
     </div>
-  </section>
+  </nav>
 
-  <section id="grabadora"><section id="grabadora"><label for="micSelect">
-  <h2>🎙️ Grabadora de Voz</h2>
-  <button id="recordButton">🔴 Grabar</button>
-  <button id="stopButton" disabled>⏹️ Detener</button>
-  <button id="playButton" disabled>▶️ Reproducir</button>
-  <a id="downloadButton" disabled>⬇️ Descargar</a>
-</section 
+  <!-- Botón hamburguesa -->
+  <button id="btnAbrirMenu" class="hamburguesa" aria-label="Abrir menú">☰</button>
 
-  <section id="inspiracion">
-    <h2>Inspiración</h2>
-    <input type="text" id="palabraClave" placeholder="Dime una palabra, verso o emoción">
-    <button onclick="darInspiracion()">Inspírame</button>
-    <p id="fraseInspiracion"></p>
-  </section>
+  <!-- Contenido principal -->
+  <main>
+    <header>
+      <h1>LyricFree.Studio</h1>
+      <p id="mensajeBienvenida">Estás en modo visitante. Inicia sesión para desbloquear todo el poder creativo.</p>
+    </header>
+
+    <!-- Sección login -->
+    <section id="login">
+      <input type="text" id="nombreArtistico" placeholder="Nombre artístico o correo" />
+      <input type="password" id="password" placeholder="Contraseña" />
+      <button id="btnLogin">Iniciar sesión</button>
+    </section>
+
+    <!-- Generador de letras -->
+    <section id="generadorLetras">
+      <h2>Generador de Letras</h2>
+      <textarea id="letra" placeholder="Escribe tu letra aquí..."></textarea>
+      <div class="botones">
+        <button id="btnSugerirRima">Sugerir Rima</button>
+        <button id="btnLimpiarTexto">Limpiar</button>
+        <button id="btnDescargarLetra">Descargar</button>
+      </div>
+    </section>
+
+    <!-- Grabadora de voz -->
+    <section id="grabadora">
+      <h2>🎙️ Grabadora de Voz</h2>
+      <button id="recordButton">🔴 Grabar</button>
+      <button id="stopButton" disabled>⏹️ Detener</button>
+      <button id="playButton" disabled>▶️ Reproducir</button>
+      <a id="downloadButton" disabled>⬇️ Descargar</a>
+    </section>
+
+    <!-- Inspiración -->
+    <section id="inspiracion">
+      <h2>Inspiración</h2>
+      <input type="text" id="palabraClave" placeholder="Dime una palabra, verso o emoción" />
+      <button id="btnInspirar">Inspírame</button>
+      <p id="fraseInspiracion"></p>
+    </section>
+
+    <!-- Recomendaciones musicales -->
+    <section id="recomendaciones">
+      <h2>Recomendaciones musicales</h2>
+      <ul id="listaRecomendaciones">
+        <!-- Aquí se mostrarán las canciones sugeridas -->
+      </ul>
+    </section>
+
+    <!-- Configuración -->
+    <section id="configuracion">
+      <h2>Configuración</h2>
+      <label for="temaSelect">Tema visual:</label>
+      <select id="temaSelect">
+        <option value="claro">Modo Claro Creativo</option>
+        <option value="oscuro">Modo Oscuro Estudio</option>
+        <option value="emocional">Modo Emocional</option>
+      </select>
+      <button id="btnBorrarDatos">Borrar datos y reiniciar sesión</button>
+    </section>
+  </main>
 
   <footer>
     <p>&copy; 2025 LyricFree.Studio - Todos los derechos reservados.</p>
   </footer>
 
-  <script src="script.js"></script>
 </body>
 </html>
